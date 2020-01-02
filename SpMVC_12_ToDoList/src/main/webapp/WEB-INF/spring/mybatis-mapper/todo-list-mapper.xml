@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.todo.repository.ToDoListDao">
+ 
+ 	<select id="selectAll" resultType="todoDTO">
+ 		SELECT * FROM tbl_todolist
+ 	</select>
+ 	<select id="findById"></select>
+ 	<insert id="insert" parameterType="todoDTO">
+		INSERT INTO tbl_todolist ( 	
+	 		TD_SEQ,
+			TD_DATE,
+			TD_TIME,
+			TD_SUBJECT,
+			TD_TEXT,
+			TD_FLAG,
+			TD_ALARM
+		) VALUES (	
+			SEQ_TODO.NEXTVAL,
+			#{tdDate,jdbcType=VARCHAR},
+			#{tdTime,jdbcType=VARCHAR},
+			#{tdSubject,jdbcType=VARCHAR},
+			#{tdText,jdbcType=VARCHAR},
+			#{tdFlag,jdbcType=VARCHAR},
+			#{tdAlarm,jdbcType=VARCHAR}
+		)
+ 	</insert>
+ 	
+ 	<update id="complete">
+ 		UPDATE tbl_todolist
+ 		SET td_complete = DECODE(td_complete,'Y','N','Y') 
+ 		WHERE td_seq = #{tdSeq}
+ 	</update>
+ 	
+ 	<update id="alarm">
+ 		UPDATE tbl_todolist
+ 		SET td_alarm= DECODE(td_alarm,'Y','N','Y') 
+ 		WHERE td_seq = #{tdSeq}
+ 	</update>
+ 	
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper>

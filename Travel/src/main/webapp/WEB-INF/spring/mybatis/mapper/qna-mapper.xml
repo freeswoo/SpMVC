@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biz.travel.dao.QnADao">
+	<select id="findBySeq" resultType="qnaDTO">
+	SELECT * FROM tbl_qna WHERE qna_seq = #{str_seq}
+	</select>
+	<select id="selectAll" resultType="qnaDTO">
+	SELECT * FROM tbl_qna
+	</select>
+	<select id="findBySubject" resultType="qnaDTO">
+	SELECT * FROM tbl_qna WHERE qna_subject = #{qna_subject}
+	</select>
+	<select id="getMaxSeq" resultType="String">
+	SELECT MAX(qna_seq) FROM tbl_qna
+	</select>
+	<insert id="insert" parameterType="qnaDTO">
+	INSERT INTO tbl_qna(
+		QNA_SEQ,
+		QNA_DATE,
+		QNA_SUBJECT,
+		QNA_CONTENT,
+		QNA_ID
+	)VALUES(
+		#{qna_seq, jdbcType=VARCHAR},
+		#{qna_date, jdbcType=VARCHAR},
+		#{qna_subject, jdbcType=VARCHAR},
+		#{qna_content, jdbcType=VARCHAR},
+		#{qna_id, jdbcType=VARCHAR}
+	)
+	</insert>
+</mapper> 

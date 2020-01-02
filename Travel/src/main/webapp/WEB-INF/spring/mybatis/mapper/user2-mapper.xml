@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biz.travel.dao.UserDao2">
+
+	<select id="getMaxSeq" resultType="String">
+	SELECT MAX(user_seq) FROM tbl_user
+	</select>
+
+	<select id="findById" resultType="UserDTO2">
+	SELECT * FROM tbl_user WHERE USER_ID = #{u_id}
+	</select>
+
+	<insert id="userInsert" parameterType="UserDTO2">
+	INSERT INTO tbl_user(
+		user_seq,
+		user_id,
+		user_pass,
+		user_name,
+		user_tel,
+		user_birth,
+		user_email,
+		user_status,
+		user_delete
+	)
+	VALUES(
+		#{user_seq, jdbcType=VARCHAR},
+		#{user_id, jdbcType=VARCHAR},
+		#{user_pass, jdbcType=VARCHAR},
+		#{user_name, jdbcType=VARCHAR},
+		#{user_tel, jdbcType=VARCHAR},
+		#{user_birth, jdbcType=VARCHAR},
+		#{user_email, jdbcType=VARCHAR},
+		#{user_status, jdbcType=VARCHAR},
+		#{user_delete, jdbcType=VARCHAR}
+	)
+	</insert>
+</mapper> 

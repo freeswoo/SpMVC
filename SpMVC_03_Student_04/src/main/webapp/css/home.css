@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+*, html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	background-color: blue;
+	color: white;
+	margin: 0;
+	padding: 0.5rem;
+}
+
+nav ul {
+	display: flex;
+	background-color: black;
+	color: white;
+	list-style: none;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+nav ul a {
+	color: inherit;
+	padding: 14px 16px;
+	display: block;
+	/* transparent 투명한 색*/
+	border-bottom: 3px solid transparent;
+
+}
+
+nav ul a:hover {
+	background: #ddd;
+	color: blue;
+	border-bottom: 3px solid blue;
+}
+
+
+

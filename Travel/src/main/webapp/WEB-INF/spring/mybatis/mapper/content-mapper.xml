@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biz.travel.dao.ContentDao">
+	<select id="getBySeasonAndDevide" resultType="cDTO">
+		SELECT * FROM tbl_travel WHERE travel_season = #{travel_season} AND travel_devide = #{travel_devide}
+	</select>
+	<select id="getBySeason" resultType="cDTO">
+		SELECT * FROM tbl_travel WHERE travel_season = #{travel_season}
+	</select>
+</mapper> 
