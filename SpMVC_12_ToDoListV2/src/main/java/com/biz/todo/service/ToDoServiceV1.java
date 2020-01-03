@@ -43,6 +43,7 @@ public class ToDoServiceV1 implements ToDoService {
 		
 		String curDate = sd.format(date); // 문자열형 날짜 생성
 		String curTime = st.format(date); // 문자열형 시간 생성
+		
 		/*
 		String strTdComp = toDoList.getTd_complete();
 		if(strTdComp == null || strTdComp.isEmpty()) {
@@ -54,8 +55,10 @@ public class ToDoServiceV1 implements ToDoService {
 			toDoList.setTd_alarm("N");
 		}
 		*/
+		
 		// toDoList.setTd_date(curDate);
 		// toDoList.setTd_time(curTime);
+		
 		int ret = toDao.insert(toDoList);
 		return ret;
 	

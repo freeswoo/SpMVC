@@ -9,8 +9,10 @@
 		</layout>
 	</appender>
 	
-	<logger name="com.biz.product.controller" level="DEBUG"/>
-	<logger name="com.biz.product.persistence" level="DEBUG" />
+	<logger name="com.biz.todo.controller" level="DEBUG"/>
+	<logger name="com.biz.todo.persistence" level="DEBUG" />
+	<logger name="com.biz.todo.common" level="TRACE" />
+	
 	
 	<logger name="jdbc.sqltiming" level="WARN" />
 	<logger name="jdbc.sqlonly" level="INFO"/>

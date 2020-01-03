@@ -21,14 +21,8 @@ public class ToDoServiceV2 extends ToDoServiceV1{
 
 	@Override
 	public int update(ToDoList toDolist) {
-		
-		if(toDolist.getTd_alarm() == null) {
-			toDolist.setTd_alarm("N");
-		}
-		if(toDolist.getTd_complete() == null) {
-			toDolist.setTd_complete("N");
-		}
 		return toDao.update(toDolist);
+	
 	}
 
 	@Override

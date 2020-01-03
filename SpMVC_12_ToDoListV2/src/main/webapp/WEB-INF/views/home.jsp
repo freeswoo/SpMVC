@@ -12,9 +12,8 @@
 			
 <script>
 $(function(){
-
 	$("#login").click(function(){
-	   $("#mymodal").css("display","block")
+	   $("#myModal").css("display","block")
 	})
 })
 </script>			
@@ -54,6 +53,16 @@ $(function(){
 		text-decoration: line-through;
 	}
 	
+	li#login {
+		cursor: pointer;
+		display: inline-block;
+		padding:10px 20px;
+	}
+	
+	li#login:hover {
+		background-color: #ddd;
+	}
+	
 </style>
 </head>
 <body>
@@ -68,23 +77,23 @@ $(function(){
 <section>
 	<article id="input">
 		<form method="POST">
-					
-			<input type="hidden"
-					name="td_seq"
+
+			<input type="hidden" 
+					name="td_seq" 
 					value='<c:out 
-						value="${todoDTO.td_seq}" 
-						default="0"/>'>
-					
-			<input type="hidden"
-					name="td_complete"
+							value="${todoDTO.td_seq}" 
+							default="0" />' >
+		
+			<input type="hidden" 
+					name="td_complete" 
 					value="${todoDTO.td_complete}">
-			
-			<input type="hidden"
-					name="td_date"
+
+			<input type="hidden" 
+					name="td_date" 
 					value="${todoDTO.td_date}">
-			
-			<input type="hidden"
-					name="td_time"
+
+			<input type="hidden" 
+					name="td_time" 
 					value="${todoDTO.td_time}">
 					
 			<table class="input">
@@ -92,31 +101,32 @@ $(function(){
 					<td>
 						<label for="tdFlag">중요도</label>
 						<input id="tdFlag" type="number" 
-								value='<c:out value="${todoDTO.td_flag}" default="1"/>'
-									min="1" max="5" name="td_flag">
+						
+		value='<c:out value="${todoDTO.td_flag}" default="1" />'
+						
+									min="1" max="5" 
+									name="td_flag">
 					</td>
-
 					<td>
-						<input type="text"
+						<input type="text" 
 						value="${todoDTO.td_subject}"
-						 name="td_subject">
+						name="td_subject">
 					</td>
-
 					<td>
 						<input type="checkbox" 
-							id="tdAlaram" name="td_alarm" 
-							<c:if test="${todoDTO.td_alarm == 'Y'}">
-								checked="checked"
-							</c:if>
-								value="Y">
+							id="tdAlaram" name="td_alarm"
+				
+				<c:if test="${todoDTO.td_alarm == 'Y'}" >
+						checked="checked"
+				</c:if>
+				
+							value="Y">
 						<label for="tdAlaram">알람설정</label>
 					</td>
-					
 					<td>
 						<button>저장</button>
 						<a href="${rootPath}/">새로작성</a>
 					</td>
-				
 				</tr>
 			</table>
 		</form>

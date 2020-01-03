@@ -84,10 +84,11 @@ public class ToDoController {
 	
 	}
 	
+	
 	@RequestMapping(value="update",method=RequestMethod.GET)
 	public String update(
 			@RequestParam("tdSeq")
-			String strSeq, Model model) {
+			String strSeq,Model model) {
 		
 		long tdSeq = Long.valueOf(strSeq);
 		ToDoList toDTO = toService.findBySeq(tdSeq);
@@ -97,15 +98,14 @@ public class ToDoController {
 		model.addAttribute("todoList",tdList);
 		
 		return "home";
+	
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public String update(ToDoList toList, Model model) {
+	public String update(ToDoList toList,Model model) {
 		toService.update(toList);
 		return "redirect:/list";
-		
 	}
-	
 }
 
 
