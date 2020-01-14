@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.sec.mapper.IolistDao">
+
+	<!-- mapper.xml에 설정하는 DTO -->
+	<resultMap type="Map" id="IolistMap">
+		<result column="IO_SEQ" property="IO_SEQ"/>
+		<result column="IO_DATE" property="IO_DATE"/>
+		<result column="IO_INOUT" property="IO_INOUT"/>
+		<result column="IO_QTY" property="IO_QTY"/>
+		<result column="IO_PRICE" property="IO_PRICE"/>
+		<result column="IO_TOTAL" property="IO_TOTAL"/>
+		<result column="IO_PCODE" property="IO_PCODE"/>
+		<result column="IO_DCODE" property="IO_DCODE"/>
+	</resultMap>
+	
+ 	<select id="selectAllMap" resultMap="IolistMap">
+ 		SELECT IO_SEQ,
+			IO_DATE,
+			IO_INOUT,
+			IO_QTY,
+			IO_PRICE,
+			IO_TOTAL,
+			IO_PCODE,
+			IO_DCODE
+		FROM tbl_iolist
+ 	</select>
+	
+ 	<select id="selectAll" resultType="IolistDTO">
+ 		SELECT IO_SEQ,
+			IO_DATE,
+			IO_INOUT,
+			IO_QTY,
+			IO_PRICE,
+			IO_TOTAL,
+			IO_PCODE,
+			IO_DCODE
+		FROM tbl_iolist
+ 	</select>
+
+ 	
+ 	<select id="findById"></select>
+ 	<insert id="insert" parameterType="IolistDTO">
+ 	
+ 		INSERT INTO tbl_iolist(
+		 	IO_SEQ,
+			IO_DATE,
+			IO_INOUT,
+			IO_QTY,
+			IO_PRICE,
+			IO_TOTAL,
+			IO_PCODE,
+			IO_DCODE
+		) VALUES( 
+		 	#{io_seq},
+			#{io_date},
+			#{io_inout},
+			#{io_qty},
+			#{io_price},
+			#{io_total},
+			#{io_pcode},
+			#{io_dcode}
+		)
+ 	</insert>
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper> 

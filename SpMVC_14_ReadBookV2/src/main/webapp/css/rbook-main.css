@@ -1,0 +1,97 @@
+@charset "UTF-8";
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+html,body {
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	
+	text-align: center;
+	/* 모든 영문자를 대문자로 */
+	text-transform: uppercase;
+	
+	background-color: rgb(149,165,166);
+	margin: 0 20px; /* left, right 20px */
+	
+	padding:2rem;
+	
+}
+
+nav,section {
+	margin: 0 20px;
+}
+
+
+#main-menu {
+	list-style: none;
+	display: flex;
+	background-color: rgb(52,152,219);
+}
+
+.menu-item {
+	
+	display: inline-block;
+	padding:12px 16px;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	border-bottom: 4px solid transparent;
+	
+	transition : border-bottom 1s;
+	transition : color 0.5s ease-in-out;
+}
+
+.menu-item:hover {
+	border-bottom: 4px solid black;
+	color:yellow;
+}
+
+
+.flex-right {
+	margin-left: auto;
+}
+
+
+#main-button {
+	display: flex;
+}
+
+button {
+	border:none;
+	display: inline-block;
+	padding: 8px 16px;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	
+	white-space: nowrap;
+	
+	color:inherit;
+	background-color: inherit;
+	border-radius: 5px;
+}
+
+/* 
+	!important 
+	혹시 누군가 색깔을 바꾸려고 해도 바꾸지 마라
+*/
+button:hover {
+	color :#000 !important;
+	background-color: #ccc !important;
+}
+
+
+
+
+
+
+
+
+

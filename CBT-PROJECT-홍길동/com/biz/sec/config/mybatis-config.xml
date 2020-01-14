@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	
+	<typeAliases>
+		<typeAlias 
+			type="com.biz.sec.persistence.IolistDTO" 
+			alias="IolistDTO"/>
+			
+		<typeAlias 
+			type="com.biz.sec.persistence.MasterDetailVO" 
+			alias="MDVO"/>
+			
+		<typeAlias 
+			type="com.biz.sec.persistence.DetailDTO" 
+			alias="DetailDTO"/>			
+			
+		<typeAlias 
+			type="com.biz.sec.persistence.MasterDTO" 
+			alias="MasterDTO"/>
+			
+		<typeAlias 
+			type="com.biz.sec.persistence.CbtDTO"
+			alias="CbtDTO"/>			
+
+	</typeAliases>
+	
+	<!-- DB 연결을 위한 정보 설정 -->
+	<environments default="oracleConnection">
+		<environment id="oracleConnection">
+			<!-- 
+			
+				MyBATIS에서 JDBC를 사용한 Connection관리 
+				
+				${username}, ${password}
+				property value를 직접 문자열로 사용하지 않고
+				java 코드에서 동적으로 값을 세팅하기 위해
+				대치(대입)변수 형으로 설정을 한다.
+			
+			-->
+			<transactionManager type="JDBC" />
+
+			<dataSource type="POOLED">
+				<property name="driver" 
+						value="oracle.jdbc.OracleDriver"/>
+				<property name="url" 
+					value="jdbc:oracle:thin:@localhost:1521:xe"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/biz/sec/mapper/iolist-mapper.xml"/>
+		<mapper resource="com/biz/sec/mapper/question-mapper.xml"/>
+		<mapper resource="com/biz/sec/mapper/cbt-mapper.xml"/>
+	</mappers>
+
+</configuration>

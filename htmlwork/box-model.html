@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <style>
+        p {
+            border : 1px solid blue;
+            padding:10px;
+            /* 
+            box의 border를 변경하면 
+            box 안쪽으로 들여쓰기를 하여
+            전체 box의 좌우 크기를 변경없도록 하는 옵션
+            */
+
+            box-sizing: border-box;
+            -moz-box-sizing: border-box; /* firefox, chome 아주 오래된 버전 */
+            -ms-box-siging : border-box; /* ms의 ie, edge */
+            -webkit-box-sizing: border-box; /* safari */
+        
+        }
+
+        #p2,#p3,#p4 {
+            width:50%;
+            margin:8px auto; /* 좌우 중앙정렬하기 */
+        }
+
+        #p2 {
+            border:10px solid red;
+        }
+        #p3 {
+            border:5px solid red;
+        }
+        #p4 {
+            border:2px solid red;
+        }
+
+        /* 현재 문서 전체에 d-class 클래스에 적용하기 */
+        .d-class {
+          background-color: blue;  
+        }
+
+        /* div tag의 d-class 클래스에만 적용하기 */
+        div.d-class {
+            color:yellow;
+        }
+
+    </style>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3" class="d-class">P1</p>
+    <p id="p4" class="d-class">P2</p>
+    <p id="p5" class="d-class">P3</p>
+
+    <div>가</div>
+    <div class="d-class">나</div>
+    <div class="d-class">다</div>
+    <div class="d-class">라</div>
+    <div class="d-class">마</div>
+    
+</body>
+</html>

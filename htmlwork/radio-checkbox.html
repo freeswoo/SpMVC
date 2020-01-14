@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <style>
+        .r-box {
+            width:70%;
+            margin:20 auto;
+            border : 1px solid blue;
+            padding:10px;
+
+        }
+        input {
+            display: inline-block;
+            width:90%;
+            padding: 8px;
+            margin:5px;
+        }
+
+        /*
+            css에서 특정한 input box에 속성을 적용할때
+
+            input[type="radio"]
+            또는 [type=raio]
+
+        */
+        input[type="radio"],[type=checkbox] {
+            
+            width:24px;
+            height:24px;
+            position: relative;
+            top: 6px;
+            margin-left: 15px;
+        }
+
+    </style>
+
+    <article>
+        <div class="r-box">
+            <input type="radio" name="m_cat" value="cat1">
+            <label>카테고리1</label>
+            <input type="radio" name="m_cat" value="cat2">
+            <label>카테고리2</label>
+            <input type="radio" name="m_cat" value="cat3">
+            <label>카테고리3</label>
+        </div>
+        <div class="r-box">
+                <!-- controller로 데이터를 전송할때 문자열로 전송하기 위해서 -->
+                <input type="hidden" 
+                        name="m_hobby" 
+                        value="on">
+                <input type="checkbox" name="m_hobby" value="h1">
+                <label>등산</label>
+                <input type="checkbox" name="m_hobby" value="h2">
+                <label>독서</label>
+                <input type="checkbox" name="m_hobby" value="h3">
+                <label>영화감상</label>
+        </div>
+    </article>
+</body>
+</html>

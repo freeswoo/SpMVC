@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <style>
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            color:white;
+        }
+
+        ul a {
+            display: block;
+            color:inherit;
+            text-decoration: none;
+            padding:14px 16px;
+            transition: 0.3s;
+        }
+
+        ul a:hover {
+            background-color: #ddd;
+            color:black;
+            font-weight: bold;
+        }
+
+        li#m3 {
+            margin-left:auto;
+        }
+
+    </style>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li id="m3"><a href="#">로그인</a></li>
+        <li><a href="#">회원가입</a></li>
+        <li class="drop-main">
+            <a href="#">메뉴에 대하여</a>
+            <div class="drop-sub">
+                <a href="#">Drop menu1</a>
+                <a href="#">Drop menu2</a>
+                <a href="#">Drop menu3</a>
+                <a href="#">Drop menu4</a>
+                <a href="#">Drop menu5</a>
+            </div>
+        </li>
+    </ul>
+    <style>
+
+        .drop-main {
+            position: relative;
+        }
+        .drop-sub {
+            height: 0;
+            position: absolute;
+            right: 0;
+            background-color:green ;
+            min-width: 160px;
+            z-index : 10;
+            transition: height 0.3s ease-in,
+                       
+        }
+        .drop-main:hover .drop-sub {
+            height: 200px;
+      
+            transition-delay: 0s, 0s,1s;
+            
+        }
+    </style>
+
+</body>
+</html>

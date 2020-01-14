@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <p class="pc"></p>
+    <p class="pc"></p>
+    <p class="pc"></p>
+    <p class="pc"></p>
+    <p class="pc"></p>
+    <script>
+        /*
+        querySelector()
+        js 최신버전에서 getElement의 단점을 보완한 
+        함수(function)
+        jquery에서는 tag, id, class를 지정할때
+        매우 단순한 방법으로 지정이가능하다
+        jquery의 단순함을 js에서 구현한 함수
+
+        */
+        // 클래스가 pc인 요소의 첫번째 항목
+        var pc = document.querySelector(".pc")
+        pc.innerHTML = "대한민국"
+
+        // 클래스가 pc인 요소의 모든 항목을
+        // List로 가져오기
+        var pcArray = document.querySelectorAll(".pc")
+
+        /*
+        List.forEach(함수)
+        List의 개수만큼 반복문을 실행하면서
+        List의 각 요소들을 함수에게 주입하면서
+        실행을 하라
+        */
+        // for(Dto d : dList) {  }
+        pcArray.forEach(
+            // js 의 call back 함수
+            // 비동기방식으로 호출되는 함수이며
+            // 마치 forEach가 각각요소를 하나씩
+            // 추출하여 함수를 호출하면서
+            // 매개변수로 요소를 보내는 것
+
+            // 두번째 매개변수는 각 요소의 순서값을 
+            //      나타나내는
+            // 값이 주입된다
+            function(pitem,cont) {
+                pitem.innerHTML = "우리나라 : " + cont
+            }
+        );
+
+        /* add() 라는 함수를 선언 */
+        function add(num1) {
+            console.log(num1)
+        }
+        // add() 함수를 호출하면서 
+        // 숫자 30을 매개변수로 전달
+        add(30)
+
+        let f = function add1(num1) {
+            console.log(num1)
+        }
+        f(30)
+
+
+    </script>
+
+</body>
+</html>

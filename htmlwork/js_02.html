@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <input id="st_name">
+    <p class="pc">P Tag 문자열 1</p>
+    <p class="pc">P Tag 문자열 2</p>
+    <p class="pc">P Tag 문자열 3</p>
+    <p class="pc">P Tag 문자열 4</p>
+    <p class="pc">P Tag 문자열 5</p>
+
+    <p id="p-main"></p>
+    <script>
+        /*
+        id가 p-main으로 설정된 DOM에
+        문자열을 변경하기
+        */
+        var sMain = document.getElementById("p-main")
+        sMain.innerText = "대한민국만세"
+
+        var pArray = document.getElementsByTagName("p")
+        for(let i = 0 ; i < pArray.length ; i++) {
+            pArray[i].innerText = i
+        }
+
+        var pcArray = document.getElementsByClassName("pc")
+
+        for(let i = 0 ; i < pcArray.length ; i++) {
+            pcArray[i].innerText = "번호 : " + i 
+        }
+
+        /* 
+        innerText 속성에 문자열을 보내면
+        html tag가 모두 무시되는 현상
+        */
+        sMain.innerText = "<font color=red size=50pt>대한민국</font>"
+
+        /*
+        innerHTML 속성에 문자열을 보내면
+        html tag가 적용되어 tag속성이 반영된 형태로
+        표시가 된다
+        */
+        pcArray[0].innerHTML = "<font color=red size=50pt>대한민국</font>"
+    
+    </script>
+   
+    
+
+</body>
+</html>

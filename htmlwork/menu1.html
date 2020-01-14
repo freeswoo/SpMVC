@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    /*
+    본문에 ul  tag가 많이 있을 경우
+    메뉴설정에서 사용한 ul에만 스타일을 적용하겠다.
+    */
+    ul.main-menu {
+        background-color: white;
+        color:blue;
+        width: 95%;
+        /* 
+        rgba() : red, green, blue, alpah값을 지정해서
+        색상과 투명도가 있는 색을 만드는 함수
+        */
+        box-shadow: 5px 10px 8px rgba(88,88,88,0.8);
+
+        /* ul box박스를 고정시켜서 움직이지 않도록 만들기 */
+        position: fixed;
+        top : 0;
+        left : 10px;
+
+        display: flex;
+        list-style: none;
+
+        border-bottom-right-radius: 5px;
+
+        transition: 0.3s;
+        z-index: 10;
+    
+    }
+
+    ul.main-menu a {
+        flex: 0 1 auto;
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        margin-left : 0;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    ul.main-menu li:nth-child(1) {
+        background-color: blue;
+        color:white;
+        font-weight: bold;
+        font-style: italic;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    ul.main-menu a:nth-child(1) {
+        color:inherit;
+    }
+
+    </style>
+    <script>
+
+        // jQ 코드 시작
+        $(function(){
+
+            // 현재 보고 있는 화면의 scrollTop 값을 추출하여
+            // 변수에 임시 보관
+            var preScroll = $(window).scrollTop();
+            $(window).scroll(function(e){
+                let curScroll = $(window).scrollTop();
+                // 아래방향으로 스크롤을 시도하면
+                if(preScroll > curScroll) {
+                    $("ul.main-menu").css("top",0)
+                } else {
+                    $("ul.main-menu").css("top",-80)
+                }
+                preScroll = curScroll
+            })
+        })
+    
+    </script>
+
+    <nav>
+        <ul class="main-menu">
+            <li><a href="#">내홈으로</a></li>
+            <li><a href="#">네이버</a></li>
+            <li><a href="#">구글</a></li>
+            <li><a href="#">다음</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+        </ul>
+    </nav>
+    <section>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+        <p>본문영역</p>
+
+
+    </section>
+  
+</body>
+</html>

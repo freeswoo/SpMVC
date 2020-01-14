@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+})
+$(()=>{
+})
+
+$(function(){
+    /*
+    event handler
+    누군가 id 가 p1인 selector를 마우스로 클릭하면
+    반응을 할 코드를 등록하기
+    */
+    $("#p1").click(function(e){
+        let t = $("#p1").text()
+        alert(t)
+    })
+
+    // id가 p2인 tag가 클릭되면
+    $("#p2").click(function(e){
+        // id가 st_name인 input box에 입력된 값을
+        let t = $("#st_name").val()
+
+        // id가 p2인 tag 에 표시하라
+        $("#p2").text(t)
+    })
+
+    $("#p3").click(function(){
+        $("#p3").css("background-color","red")
+            .css("color","white")
+    })
+
+    var sw = 1
+    $("#p4").click(function(){
+        if(sw > 0) {
+            $("#p5").css("display","none")
+        }else{
+            $("#p5").css("display","block")
+        }
+        sw *= (-1)
+    })
+
+    $(".pc").click(function(e){
+        alert("class pc가 클릭")
+    })
+
+})
+
+</script>    
+<input id="st_name">
+<p id="p1" class="pc">본문 1</p>
+<p id="p2" class="pc">본문 2</p>
+<p id="p3" class="pc">본문 3</p>
+<p id="p4" class="pc">본문 4</p>
+<p id="p5" class="pc">본문 5</p>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <style>
+        .drop-sub {
+            background-color: #ddd;
+        }
+        nav a {
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 1rem;
+            color:#E00;
+        }
+        nav a:hover {
+            color:#F55;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #EEE;
+        }
+
+        .main-menu-box {
+            display: flex;
+        }
+
+        /* 
+        
+        > 선택자 
+        tag1 tag2 : tag1내에 있는 모든 tag2
+        tag1 > tag2 : tag1내에 바로 인접한 tag2
+        IE 8 미만에서는 작동 안됨
+
+        */
+        .main-menu-box > li {
+            border-left : solid 1px blueviolet;
+        }
+
+        .main-menu-box > li:first-child {
+            border-left: none;
+        }
+
+        .drop-main {
+            position: relative;
+        }
+
+        .drop-sub {
+            /* sub 메뉴를 기본으로 보이지 않도록 */
+            visibility: hidden;
+            /* 투명도를 0으로 보이지 않게 */
+            opacity: 0;
+            
+            /* drop-main에 대하여 위치를 고정하기 위한 */
+            position: absolute;
+            top:100%;
+            left:0; /* 메인메뉴에 대하여 왼쪽정렬 */
+            width:100%;
+
+            z-index: -1;
+            transform: translateY(-2rem);
+            /*
+                ease-out : 시작은 빠르게 점점 느려지게
+
+                ease-in : 시작은 느리게 그리고 빨리 끝
+                ease-in-out : 자동차가 가속 ~ 감속하는 것처럼
+                ease-in, eas-in-out : 상당히 느린 효과이므로
+                    가급적 0.5s 이하로 설정하는 것 좋다.
+            */
+            transition: all 0.3s ease-in-out,
+                visibility 0s linear 0.3s,
+                z-index 0s linear 0.05s;
+        }
+
+        .drop-main:focus .drop-sub, 
+        .drop-main:hover .drop-sub {
+            visibility: visible;
+            opacity: 1;
+            z-index: 10;
+            transform: translateY(0);
+            transition-delay: 0s, 0s, 0.3s;
+        }
+
+    </style>
+    <nav>
+        <ul class="main-menu-box">
+            <li><a href="#">메인메뉴1</a></li>
+            <li><a href="#">메인메뉴2</a></li>
+            <li class="drop-main">
+                <a href="#">메인메뉴3</a>
+                <ul class="drop-sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

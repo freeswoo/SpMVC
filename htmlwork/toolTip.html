@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        p {
+            font-size:30px;
+        }
+
+        span[data-dc] {
+                position: relative;
+                text-decoration: underline;
+                color:#00F;
+                cursor: help;
+        }
+
+        /* 
+        가상 tag
+        ::after 
+        :::before
+
+        마치 span[data-dc] tag 앞(be) 뒤(af)에 
+        box tag가 하나 있는 것처럼 어떤 content를 표시하기
+
+        content에 어떤값(최소한 "" ) 있어야 작동을 시작한다.
+        */
+        span[data-dc]:hover:after {
+            content: attr(data-dc); 
+            position: absolute;
+            left:20px;
+            top:35px; /* 폰트보다 조금 크게 */
+            z-index: 3;
+
+            min-width: 200px;
+            border:1px solid #aaa;
+            border-radius: 20px;
+            background-color: #ffffcc;
+            padding: 12px;
+            columns: #000000;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <p>하늘을 <span data-dc="우러러 보다의 줄임말">우러러</span> 한점 부끄럼없기를 
+    <span data-dc="프르른 잎새는 봄, 노란 잎새는 가을">잎새</span>에 이는 밤에도 나는 괴로워 했다</p>
+</body>
+</html>

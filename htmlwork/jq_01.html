@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'   type = 'text/css' media='screen' href='main.css'>
+    <script src='jquery-3.4.1.js'></script>
+</head>
+<body>
+<script>
+ /*
+    지금부터 jQuery 코드를 작성하겠다
+    현재 HTML DOC 가 모두 작성되어
+    화면에 노출이 되면 실행을 시작하라
+ */   
+jQuery(document).ready(function(){
+})
+
+/*
+jQuery 키워드를 $로 대치한 새로운 코드
+*/
+$(document).ready(function(){
+
+    // tag selector
+   $("p").text("우리나라만세")
+
+   // class selector
+   $(".pc").html("<font color=red>대한민국만세</font>")
+
+   // id selector
+   $("#p3").html("<font color=blue>Republic of Korea</font>")
+
+})
+/*
+순수 js 코드는
+HTML 문서의 하단에 위치하는 것이 원칙이나
+jq 코든 문서 어떤 위치에서도 작성할수 있다.
+*/
+
+
+</script>
+    <p class="pc" id="p1">본문 1</p>
+    <p class="pc" id="p2">본문 2</p>
+    <p class="pc" id="p3">본문 3</p>
+    <p class="pc" id="p4">본문 4</p>
+    <p class="pc" id="p5">본문 5</p>
+   
+</body>
+</html>

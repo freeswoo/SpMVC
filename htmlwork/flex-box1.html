@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <style>
+        /* container에 포함된 box들을 flex box 선언 */
+        /* 
+        기본값 : flex-wrap : nowrap 
+        브라우저 좌우폭이 변동이 되면 box의 크기를 조절해서
+        가득 차도록 만들기
+        flex-wrap : wrap
+        브라우저 폭이 바뀌면 칼럼을 줄바꿈을 하도록 만들기
+        */
+        .container {
+            display: flex;
+            flex-wrap: wrap;    
+        }
+
+        /* 
+        flex box에 담겨있는 box 들은 
+        자동으로 flex-item이 되어서
+        flex box의 유연한 여러 기능들이 작용이된다.
+        */
+        .flex-item {
+           
+            border:1px solid blue;
+            background-color: yellow;
+            padding:10px;
+            margin:5px;
+            width:300px;
+        }
+    </style>
+    <div class="container">
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+            <div class="flex-item">flex item</div>
+    </div>
+</body>
+</html>

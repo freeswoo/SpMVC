@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+$(function(){
+    $(".pc").click(function(e){
+        let t = $(this).text()
+        alert(t)
+    })
+})
+
+</script>    
+<input id="st_name">
+<p id="p1" class="pc">본문 1</p>
+<p id="p2" class="pc">본문 2</p>
+<p id="p3" class="pc">본문 3</p>
+<p id="p4" class="pc">본문 4</p>
+<p id="p5" class="pc">본문 5</p>
+
+</body>
+</html>

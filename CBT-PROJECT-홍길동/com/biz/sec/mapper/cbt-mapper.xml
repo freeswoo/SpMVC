@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.sec.mapper.MDDao">
+
+	<resultMap type="MDVO" id="masterDetail">
+		<id column = "m_seq" property="m_seq"/>
+		<result column="m_subject" property="m_subject" />
+	
+		<collection property="deList" 
+					column="m_seq" 
+					ofType="DetailDTO"
+			select="detail"	/>
+	</resultMap>
+
+ 	<select id="selectAll" resultMap="masterDetail">
+ 		SELECT * FROM tbl_master
+ 	</select>
+ 	
+ 	<select id="detail" resultType="DetailDTO">
+ 		SELECT d_seq, d_m_seq,d_subject, d_ok 
+ 		FROM tbl_detail
+ 		WHERE d_m_seq = #{m_seq}
+ 	</select>
+ 	
+ 	<select id="findById"></select>
+ 	
+ 	<insert id="insertMaster" parameterType="MasterDTO">
+ 		<selectKey 
+ 				keyProperty="m_seq" 
+ 				order="BEFORE" 
+ 				resultType="Long">
+ 			SELECT SEQ_MASTER.NEXTVAL FROM DUAL
+ 		</selectKey>
+ 		INSERT INTO tbl_master(
+ 			M_SEQ,
+ 			M_SUBJECT
+		) VALUES(
+			#{m_seq},
+			#{m_subject} 
+		)
+ 	</insert>
+
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper> 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        div {
+            border-radius: 50%;
+        }
+
+        .d-class {
+            background-color: yellow;
+            border: 1px solid blue;
+            margin: 10px 0;
+        }
+
+        .d-green {
+            background-color: greenyellow;
+        }
+
+        #d3 {
+            font-size: 30px;
+        }
+
+        p.d-class {
+            background-color: grey;
+        }
+    </style>
+    <script>
+
+        $(function () {
+
+            // event 핸들러 함수를 별도로 선언하고
+            var myEvent = function () {
+                let d_text = $(this).text()
+                alert(d_text)
+            }
+
+            // 이벤트에 연결
+            $("#d3").click(myEvent)
+
+            /*
+            화살표 함수 ()=>
+            새로운 JS 버전에서 사용하는 lambda 방식의 함수로
+            function 키워드 없이 함수를 사용하는 방법
+            화살표 함수를 사용할 경우 this 키워드는
+            자기 자신이 아닌
+            현재 문서의 DOM(Document Object Model) parent를 
+                가리키게 된다.
+            일반적으로 사용하는 $(this)와 같은 방법으로 
+                사용할 경우
+            전혀 의도하지 않는 방향으로 코드가 실행된다.
+            */
+            $("#d1").click(()=>{
+                alert($(this).text())
+            })
+
+            // selector, 선택자, 요소
+            $("div.d-class").click(function (event) {
+                // event.stopPropagation()
+                let d_text = $(this).text()
+                // alert(d_text)
+                alert("여기는 DIV tag")
+                // return false
+            })
+
+
+
+            /*
+            이벤트 버블링
+            어떤 tag들이 감싸진 구조로 만들어져 있을경우
+            이벤트가 다른 tag(부모tag)에 전파되어
+            의도하지 않는 결과를 내는 것
+
+            1. 이벤트 핸들링 함수에 event 매개변수를 설정하고
+                event.stopPropagation()함수를 사용하는 방법
+
+            2. 이벤트 핸들링 함수 끝에 return false 넣는 방법
+
+            */
+            $("p#p1").click(function (event) {
+                // event.stopPropagation()
+                alert("여기는 p tag")
+                return false
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="d1" class="d-class">Div D1</div>
+    <div id="d2" class="d-class d-green">Div D2</div>
+    <div id="d3" class="d-class">Div D3</div>
+    <div id="d4" class="d-class d-green">Div D4</div>
+    <div id="d5" class="d-class">Div D5</div>
+    <div class="d-class">
+        <p id="p1" class="d-class">P P1</p>
+    </div>
+
+</body>
+
+</html>
