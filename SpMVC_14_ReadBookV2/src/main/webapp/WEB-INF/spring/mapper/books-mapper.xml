@@ -5,6 +5,28 @@
   
  <mapper namespace="com.biz.rbooks.repository.BookDao">
  
+ 	<select id="findByBNames" resultType="bookVO">
+ 		SELECT * FROM tbl_books
+ 		<if test="#{names != null}">
+	 		<where>
+		 		<foreach collection="names" 
+		 				item="bVO" 
+		 				separator="OR">
+		 			b_name Like '%' ||  #{bVO} || '%'
+		 		</foreach>
+		 	</where>
+	 	</if>
+ 	</select>
+
+ 	<select id="findByBNames2" resultType="bookVO">
+ 		SELECT * FROM tbl_books
+	 		<foreach collection="names" 
+	 				item="bVO" open="WHERE"
+	 				separator="OR">
+	 			b_name Like '%' ||  #{bVO} || '%'
+	 		</foreach>
+ 	</select>
+ 
  	<insert id="insert" parameterType="bookVO">
 	 		INSERT INTO tbl_books(
 		 		B_CODE,

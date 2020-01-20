@@ -9,7 +9,7 @@ import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 public class MakeSecure {
 
-	private final static String saltPass = "";
+	private final static String saltPass = "oracle11";
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
