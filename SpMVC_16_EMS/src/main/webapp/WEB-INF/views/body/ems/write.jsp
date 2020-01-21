@@ -27,11 +27,10 @@ $(function(){
 		width:'100%',
 		toolbar:toolbar,
 		height:'200px',
-		disableDragAndDrop : true
+		disableDragAndDrop : false
 	})
 	
 })
-
 
 </script>
 <fieldset class="email-write-box">

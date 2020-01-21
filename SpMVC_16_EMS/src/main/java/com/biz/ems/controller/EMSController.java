@@ -2,6 +2,7 @@ package com.biz.ems.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +13,23 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.biz.ems.domain.EmailVO;
+import com.biz.ems.service.MailService;
+import com.biz.ems.service.SendMailService;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+
+@Slf4j
+@RequiredArgsConstructor
 @SessionAttributes("emailVO")
 @Controller
 @RequestMapping(value="/ems")
 public class EMSController {
+	
+	
+	private final SendMailService xMailService;
+	private final MailService mailService;
 	
 	/*
 	 * ModelAttribute 생성자 method
@@ -42,16 +55,37 @@ public class EMSController {
 		return emailVO;
 	}
 	
+	@RequestMapping(value="/list",method=RequestMethod.GET)
+	public String list(Model model) {
+		
+		List<EmailVO> mailList = mailService.selectAll();
+		
+		model.addAttribute("LIST",mailList);
+		return "home";
+		
+	}
+	
 	@RequestMapping(value="/input",method=RequestMethod.GET)
 	public String input(@ModelAttribute("emailVO") EmailVO emailVO, 
 					Model model,SessionStatus status) {
 		
-		// emailVO = this.makeEmailVO();
-		status.setComplete();
+		emailVO = this.makeEmailVO();
+		// status.setComplete();
 		
 		model.addAttribute("emailVO",emailVO);
 		model.addAttribute("BODY","WRITE");
 		return "home";
+	
+	}
+	
+	@RequestMapping(value="/input",method=RequestMethod.POST)
+	public String input(@ModelAttribute("emailVO") EmailVO emailVO) {
+		
+		log.debug("컨트롤러" + emailVO.toString());
+		// xMailService.sendMail(emailVO);
+		mailService.insert(emailVO);
+		
+		return "redirect:/";
 	
 	}
 	

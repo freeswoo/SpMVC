@@ -28,12 +28,20 @@ public class MakeNaverSec {
 		System.out.print("Naver Password : " );
 		String naverPass = scanner.nextLine();
 		
+		System.out.print("DB User : " );
+		String dbUserId = scanner.nextLine();
+		
+		System.out.print("DB Pass : " );
+		String dbPassword = scanner.nextLine();
+		
 		// 암호화 설정
 		pbEnc.setAlgorithm("PBEWithMD5AndDES");
 		pbEnc.setPassword(saltPass);
 		
 		String encNaverId = pbEnc.encrypt(naverId);
 		String encNaverPass = pbEnc.encrypt(naverPass);
+		String encDBUserId = pbEnc.encrypt(dbUserId);
+		String encDBPass = pbEnc.encrypt(dbPassword);
 		
 		System.out.printf("Naver : %s, %s\n",naverId, naverPass);
 		System.out.printf("EncNaver : %s, %s\n",encNaverId, encNaverPass);
@@ -43,6 +51,10 @@ public class MakeNaverSec {
 			= String.format("naver.username=ENC(%s)",encNaverId);
 		String saveNaverPass 
 		= String.format("naver.password=ENC(%s)",encNaverPass);
+		String saveDBUserId 
+		= String.format("mysql.user=ENC(%s)",encDBUserId);
+		String saveDBPass 
+		= String.format("mysql.password=ENC(%s)",encDBPass);
 		
 		String profileName = "./src/main/webapp/"
 							+ "WEB-INF/spring/"
@@ -58,6 +70,8 @@ public class MakeNaverSec {
 			PrintWriter out = new PrintWriter(proFile);
 			out.println(saveNaverId);
 			out.println(saveNaverPass);
+			out.println(saveDBUserId);
+			out.println(saveDBPass);
 			
 			out.flush();
 			out.close();

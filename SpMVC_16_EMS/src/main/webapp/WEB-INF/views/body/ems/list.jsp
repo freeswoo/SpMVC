@@ -19,12 +19,12 @@
 		<c:otherwise>
 			<c:forEach items="${LIST}" var="VO" varStatus="in">
 				<tr>
-					<td>NO</td>
-					<td>받는Email</td>
-					<td>받는사람</td>
-					<td>제목</td>
-					<td>작성일자</td>
-					<td>작성시각</td>
+					<td>${in.index}</td>
+					<td>${VO.from_email}</td>
+					<td>${VO.from_name}</td>
+					<td>${VO.subject}</td>
+					<td>${VO.send_date}</td>
+					<td>${VO.send_time}</td>
 				</tr>
 			</c:forEach>
 		</c:otherwise>
