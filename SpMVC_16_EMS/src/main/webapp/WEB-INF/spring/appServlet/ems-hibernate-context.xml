@@ -15,19 +15,20 @@
 		<property name="username" value="${mysql.user}"/>
 		<property name="password" value="${mysql.password}"/>
 	</bean>
-	
+
 	<context:annotation-config/>
 	<tx:annotation-driven/>
-	
+
 	<bean id="transactionManager" 
 			class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="dataSource" ref="emsHiber"/>
 	</bean>
-	
+
 	<bean id="entityManagerFactory" 
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	
 		<property name="dataSource" ref="emsHiber"/>
-		<property name="packagesToScan" value="com.biz.ems.domain"/>
+		<property name="packagesToScan" value="com.biz.ems.domain" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 		</property>
@@ -44,5 +45,6 @@
 		</property>
 	</bean>
 	<jpa:repositories base-package="com.biz.ems.repository"/>
-	
+
+
 </beans>

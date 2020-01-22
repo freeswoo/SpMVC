@@ -7,8 +7,10 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -50,8 +52,8 @@ public class EMSController {
 		String curTime = st.format(date);
 		
 		EmailVO emailVO = EmailVO.builder()
-							.send_date(curDate)
-							.send_time(curTime).build();
+							.sendDate(curDate)
+							.sendTime(curTime).build();
 		return emailVO;
 	}
 	
@@ -84,9 +86,38 @@ public class EMSController {
 		log.debug("컨트롤러" + emailVO.toString());
 		// xMailService.sendMail(emailVO);
 		mailService.insert(emailVO);
-		
 		return "redirect:/";
 	
 	}
 	
+	@RequestMapping(value="/view/{ems_seq}",method=RequestMethod.GET)
+	public String view(@ModelAttribute("emailVO") EmailVO emailVO,
+					@PathVariable("ems_seq") String ems_seq,
+					Model model) {
+		emailVO = mailService.findBySeq(Long.valueOf(ems_seq));
+		
+		model.addAttribute("BODY","VIEW");
+		model.addAttribute("emailVO",emailVO);
+		return "home";
+	}
+	
+	@RequestMapping(value="/update/{ems_seq}",method=RequestMethod.GET)
+	public String update(@ModelAttribute("emailVO") EmailVO emailVO,
+					@PathVariable("ems_seq") String ems_seq,
+					Model model) {
+		emailVO = mailService.findBySeq(Long.valueOf(ems_seq));
+		
+		model.addAttribute("BODY","WRITE");
+		model.addAttribute("emailVO",emailVO);
+		return "home";
+	}
 }
+
+
+
+
+
+
+
+
+

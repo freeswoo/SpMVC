@@ -18,13 +18,12 @@
 		<constructor-arg ref="configEnC"/>
 		<property name="location" value="/WEB-INF/spring/naver.email.secret.properties"/>
 	</bean>
-	
 
 	<!-- mail을 보내기 위한 기본 설정수행 -->
 	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.naver.com"/>
+		<property name="host" value="smtp.gmail.com"/>
 		<property name="port" value="465"/>
-		<property name="username" value="${naver.username}"/>
+		<property name="username" value="callor8085@gmail.com"/>
 		<property name="password" value="${naver.password}"/>
 		<property name="javaMailProperties">
 			<props>
