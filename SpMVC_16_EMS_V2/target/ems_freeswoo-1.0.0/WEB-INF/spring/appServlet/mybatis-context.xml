@@ -14,7 +14,7 @@
 	<bean id="MySQLMybatisDS" 
 			class="org.apache.commons.dbcp2.BasicDataSource">
 			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="url" value="jdbc:mysql://192.168.0.220:3306/emsDB?serverTimezone=Asia/Seoul"/>
+			<property name="url" value="jdbc:mysql://127.0.0.1:3306/emsDB?serverTimezone=Asia/Seoul"/>
 			<property name="username" value="${mysql.user}"/>
 			<property name="password" value="${mysql.password}"/>
 	</bean>

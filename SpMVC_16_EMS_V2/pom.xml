@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.biz</groupId>
-	<artifactId>ems</artifactId>
+	<artifactId>ems_freeswoo</artifactId>
 
 	<name>ems</name>
 
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.2.2.RELEASE</org.springframework-version>
@@ -214,18 +214,27 @@
 		</dependency>
 	</dependencies>
 	<build>
+		
+		<!-- <finalName>ems_freeswoo-1.0</finalName> -->
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>	
 				<version>2.2</version>
 				<configuration>
+					<finalName>${project.artifactId}-${project.version}</finalName>
 					<url>https://callor.com:12600/manager/text</url>
 					<username>admin</username>
 					<password>admin</password>
 					<path>/ems_freeswoo</path>
 					<port>12600</port>
 					<update>true</update>
+					
+					<uriEncoding>UTF-8</uriEncoding>
+					<charset>UTF-8</charset>
+					
 				</configuration>
 			</plugin>
 			<plugin>
@@ -245,7 +254,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.8.1</version>
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>

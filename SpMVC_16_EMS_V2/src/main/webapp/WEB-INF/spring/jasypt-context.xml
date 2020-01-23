@@ -22,11 +22,7 @@
 	 -->
 	<bean class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
 		<constructor-arg ref="configEnC"/>
-		<property name="locations">
-			<list>
-				<value>/WEB-INF/spring/naver.email.secret.properties</value>
-				<value>/WEB-INF/spring/hibernate.secret.properties</value>
-			</list>
-		</property>
+		<property name="location"
+			value="/WEB-INF/spring/pros/naver.email.secret.properties"/>
 	</bean>
 </beans>
