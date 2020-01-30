@@ -18,5 +18,12 @@ public class MybatisService {
 	public List<EmailVO> selectAll() {
 		return meDao.selectAll();
 	}
-
+	
 }
+
+
+
+
+
+
+

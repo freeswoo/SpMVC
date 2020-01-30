@@ -24,7 +24,7 @@ public class SendMailService {
 	/**
 	 * @since 2020-01-01
 	 * @param emailVO
-	 * @author 505-14
+	 * @author Master
 	 */
 	public void sendMail(EmailVO emailVO) {
 		

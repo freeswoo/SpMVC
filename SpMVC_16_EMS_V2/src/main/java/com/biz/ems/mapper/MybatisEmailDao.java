@@ -11,5 +11,5 @@ public interface MybatisEmailDao {
 	@Select("SELECT * FROM tbl_ems")
 	public List<EmailVO> selectAll();
 	
-
+	
 }

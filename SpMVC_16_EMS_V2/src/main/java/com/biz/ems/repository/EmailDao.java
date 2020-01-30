@@ -1,15 +1,12 @@
 package com.biz.ems.repository;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.biz.ems.domain.EmailVO;
 
 @Repository
-public interface EmailDao extends CrudRepository<EmailVO, Long>{
+public interface EmailDao extends JpaRepository<EmailVO, Long>{
 
 	// public EmailVO findByEms_seq(long ems_seq);
 	

@@ -37,11 +37,12 @@ public class SaveMailService {
 	}
 	
 	public EmailVO findBySeq(long ems_seq) {
+		
 		Optional<EmailVO> emailVO = emsDao.findById(ems_seq);
 		return (EmailVO) emailVO.get();
 		
-//		EmailVO emailVO = emsDao.findByEmsSeq(ems_seq);
-//		return emailVO;
+		// EmailVO emailVO = emsDao.findByEmsSeq(ems_seq);
+		// return emailVO;
 		
 	}
 	

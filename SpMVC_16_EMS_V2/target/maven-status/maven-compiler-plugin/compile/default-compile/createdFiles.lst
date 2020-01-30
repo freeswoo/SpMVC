@@ -1,11 +1,11 @@
-com\biz\ems\utils\CustomPhysicalnamingStrategyV2.class
 com\biz\ems\domain\EmailVO.class
-com\biz\ems\utils\CustomPhysicalnamingStrategy.class
 com\biz\ems\service\SaveMailService.class
 com\biz\ems\repository\EmailDao.class
 com\biz\ems\service\MybatisService.class
 com\biz\ems\domain\EmailVO$EmailVOBuilder.class
 com\biz\ems\service\NaverLoginService.class
+com\biz\ems\utils\CustomPhysicalnaminStrategyV2.class
+com\biz\ems\utils\CutomPhysicalnamingStrategy.class
 com\biz\ems\controller\EMSController.class
 com\biz\ems\EmailVO2$EmailVO2Builder.class
 com\biz\ems\service\SendMailService.class

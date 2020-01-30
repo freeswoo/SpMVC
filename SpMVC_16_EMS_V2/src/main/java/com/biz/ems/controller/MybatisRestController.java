@@ -15,14 +15,17 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(value="/mybatis_rest")
 @RestController
 public class MybatisRestController {
-	
-	
+
 	private final MybatisService myService;
 	
-	@RequestMapping(value="/list",method = RequestMethod.GET)
+	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public List<EmailVO> list() {
-		
 		return myService.selectAll();
 	}
-
+	
 }
+
+
+
+
+
