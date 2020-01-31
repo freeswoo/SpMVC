@@ -229,7 +229,7 @@
 					<url>https://callor.com:12600/manager/text</url>
 					<username>admin</username>
 					<password>admin</password>
-					<path>/ems_callor</path>
+					<path>/ems_freeswoo</path>
 					<port>12600</port>
 					<update>true</update>
 					
