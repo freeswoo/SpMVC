@@ -1,31 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}"/>
 <style>
 	nav {
 		background-color: blue;
-		padding: 0;
-		border: none;
-		color: white;
+		padding:0;
+		border:none;
 	}
 	
 	nav a {
 		display: inline-block;
-		width: auto;
+		width:auto;
 		text-decoration: none;
-		padding: 0.8rem;
+		padding:0.8rem;
 		margin: 0;
-		color: white;
+		color:white;
 		position: relative;
+		
 	}
 	
 	nav a:hover {
 		background-color: #ccc;
-		color: black;
+		color:black;
 		position: relative;
 		text-decoration: none;
 	}
+	
 	
 	ul {
 		list-style: none;
@@ -36,12 +37,11 @@
 	
 	ul li {
 		flex: 0 1 auto; /* float left */
-		border: none;
+		border:none;
 	}
 	
 	li a, .dropbtn {
 		display: block;
-		color: white;
 		text-align: left;
 		padding: 14px 16px;
 		text-decoration: none;
@@ -56,7 +56,7 @@
 		position: absolute;
 		background-color: blue;
 		min-width: 160px;
-		box-shadow: 0px 8px 16px 0px(0,0,0,0.2);
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 		z-index: 3;
 	}
 	
@@ -67,15 +67,22 @@
 	.dropdown-content a {
 		border-top: 1px solid white;
 		background-color: green;
-		color: yellow;
+		color: yello;
 	}
 	
 	.dropdown-content a:hover {
 		border-bottom: 1px solid white;
 		background-color: #ccc;
-		color: black;
+		color:black;
+		text-decoration: none;
 	}
 	
+	
+	
+	
+	
+	
+
 </style>
 <nav>
 	<ul>
@@ -87,11 +94,11 @@
 					</c:when>
 					<c:otherwise>
 						<li class="dropdown">
-							<a class="dropbtn" href="javascript">${MENU.menu_title}</a>
+							<a class="dropbtn" href="javascript:void(0)">${MENU.menu_title}</a>
 							<div class="dropdown-content">
 								<c:forEach var="DROP" items="${MENU.drop_menus}">
-									<a href="${rootPaht}/${DROP.menu_href}">
-										${DROP.menu_title}
+									<a href="${rootPath}/${DROP.menu_href}">
+										${DROP.menu_title}									
 									</a>
 								</c:forEach>
 							</div>
@@ -102,4 +109,5 @@
 		</c:if>
 	</ul>
 </nav>
+
 
