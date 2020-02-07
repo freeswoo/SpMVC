@@ -4,11 +4,33 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="com.biz.bbs.mapper.BbsDao">
- 
+ <!-- 
+ 	tbl_bbs 테이블 1개를 self join을 해서
+ 	게시판 원글과 원글에 딸린 답글을 동시에 select하여 수행하는 방식
+ 	
+ 	원글을 select를 수행하고
+ 	원글의 bbs_id값을 selectSub에 전송하여 bbs_id와 bbs_p_id가 같은
+ 	또다른 리스트를 select 수행하고
+ 	
+ 	그 결과를 BBsVO의 List<BBsVO> bbs_replay 변수에 담아서
+ 	한번에 view로 전송하는 방식
+  -->
  	<select id="selectMain" resultMap="bbsReplay">
  		SELECT * FROM tbl_bbs WHERE bbs_p_id IS NULL OR bbs_p_id = 0
  	</select>
- 	
+ 	<!--
+ 		fetchType=lazy
+ 		subquery나 join을 수행했을때
+ 		실제적으로 view에서 해당 쿼리 결과를 참조하지 않으면
+ 		sql 실행을 보류하라 하는 의미
+ 		실제 view에 사용하지 않는 불필요한 쿼리를 실행하여
+ 		성능을 낮추는 결과를 줄일수 있다.
+ 		
+ 		mybatis가 쿼리를 실행하고나서
+ 		lazy가 설정된 쿼리에는 '보류하겠다' 라는 표식을 남겨두고
+ 		어디선가 해당 결과를 view에 표시하는 부분이 발생을 하면
+ 		그때 해당 쿼리를 실행한다.
+ 	 -->
  	<resultMap type="bbsVO" id="bbsReplay">
  		<id column="bbs_id" property="bbs_id" />
  		<collection property="bbs_replay" column="bbs_id"

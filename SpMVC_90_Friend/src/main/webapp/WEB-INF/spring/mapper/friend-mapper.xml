@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.friend.mapper.FriendDao">
+ 
+	 <insert id="insert">
+	 INSERT INTO `tbl_friend`
+			(
+			`FRIEND_NAME`,
+			`FRIEND_TEL`,
+			`FRIEND_HP`,
+			`FRIEND_ADDR`,
+			`FRIEND_HOBBY`,
+			`FRIEND_RELATION`)
+		VALUES
+		   (
+			#{friend_name},
+			#{friend_tel},
+			#{friend_hp},
+			#{friend_addr},
+			#{friend_hobby},
+			#{friend_relation}
+		)
+	 </insert>
+	 
+	 <update id="update">
+	 UPDATE `tbl_friend`
+		SET
+			`friend_name` = #{friend_name},
+			`friend_tel` = #{friend_tel},
+			`friend_hp` = #{friend_hp},
+			`friend_addr` = #{friend_addr},
+			`friend_hobby` = #{friend_hobby},
+			`friend_relation` = #{friend_relation}
+		WHERE `FRIEND_ID` = #{friend_id};
+	 </update>
+</mapper>
+	 
