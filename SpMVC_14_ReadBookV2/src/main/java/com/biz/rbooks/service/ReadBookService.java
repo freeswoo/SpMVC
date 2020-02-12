@@ -38,14 +38,11 @@ public class ReadBookService {
 		return ret;
 	}
 
-	public int delete(Long rb_seq) {
-		
+	public int delete(long rb_seq) {
 		return rBookDao.delete(rb_seq);
-		
 	}
 
 	public List<ReadBookVO> findByBCode(String b_code) {
-		
 		return rBookDao.findByBCode(b_code);
 	}
 	

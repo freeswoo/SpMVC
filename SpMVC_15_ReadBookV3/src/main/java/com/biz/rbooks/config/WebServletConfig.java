@@ -12,11 +12,14 @@ import org.springframework.web.servlet.view.JstlView;
 /*
  * xml이 없는 mvc project의 
  * web.xml을 대신할 클래스인데
- * 실제상황은 servlet-context.xml의 일부기능을 추가하는 class 
+ * 실제상황은 servlet-context.xml의 일부 기능을 추가하는 class
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.biz.rbooks.controller","com.biz.rbooks.service"})
+@ComponentScan(basePackages = {
+		"com.biz.rbooks.controller",
+		"com.biz.rbooks.service" 
+})
 public class WebServletConfig implements WebMvcConfigurer {
 
 	@Override
@@ -24,15 +27,14 @@ public class WebServletConfig implements WebMvcConfigurer {
 
 		registry.addResourceHandler("/css/**")
 				.addResourceLocations("/css/");
-		
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 	}
-	
+
 	@Bean
 	public InternalResourceViewResolver resolver() {
 		
 		InternalResourceViewResolver resolver
-		= new InternalResourceViewResolver();
+				= new InternalResourceViewResolver();
 		
 		resolver.setViewClass(JstlView.class);
 		resolver.setPrefix("/WEB-INF/views/");
@@ -40,8 +42,5 @@ public class WebServletConfig implements WebMvcConfigurer {
 		
 		return resolver;
 	}
-
-	
-	
 	
 }

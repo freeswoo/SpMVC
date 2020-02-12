@@ -20,8 +20,12 @@ public class BookController {
 	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public List<BookVO> list() {
-		
 		return bService.selectAll();
 	}
 	
 }
+
+
+
+
+

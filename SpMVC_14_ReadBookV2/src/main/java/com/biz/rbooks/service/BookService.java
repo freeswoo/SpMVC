@@ -56,6 +56,10 @@ public class BookService {
 		return bookVO;
 	}
 
-	
+	public int update(ReadBookVO rBookVO) {
+
+		
+		return 0;
+	}
 	
 }

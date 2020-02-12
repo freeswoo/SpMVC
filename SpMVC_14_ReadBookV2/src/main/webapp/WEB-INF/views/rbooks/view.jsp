@@ -29,7 +29,7 @@ $(function(){
 		if(btn_id == "btn-update") {
 			url += "update/${RBOOK.rb_seq}"
 		} else if(btn_id == "btn-delete") {
-			if(!confirm("독서록을 삭제할까요?")) {
+			if(!confirm("독서록을 삭제할까요")) {
 				return false
 			}
 			url += "delete/${RBOOK.rb_seq}"
@@ -150,7 +150,6 @@ $(function(){
 	
 </section>
 <%@ include file="/WEB-INF/views/rbooks/list-body.jsp" %>
-
 </body>
 </html>
 

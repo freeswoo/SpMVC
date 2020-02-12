@@ -20,6 +20,23 @@
 			WHERE R.rb_bcode = b.b_code
  	</select>
  	
+ 	
+ 	<select id="findByBCode" resultType="rBookVO">
+			 	SELECT 
+			    RB_SEQ,
+			    RB_BCODE,
+			    B_NAME AS RB_BNAME,
+			    RB_DATE,
+			    RB_STIME,
+			    RB_RTIME,
+			    RB_SUBJECT,
+			    RB_TEXT,
+			    RB_STAR
+			FROM tbl_read_book R,tbl_books B
+			WHERE R.rb_bcode = #{b_code,jdbcType=VARCHAR}
+				  AND R.rb_bcode = b.b_code
+ 	</select>
+ 	
  	 <select id="findBySeq" resultType="rBookVO">
 		 	SELECT 
 			    RB_SEQ,
@@ -33,22 +50,6 @@
 			    RB_STAR
 			FROM tbl_read_book R,tbl_books B
 			WHERE R.rb_bcode = b.b_code AND R.rb_seq = #{rb_seq}
- 	</select>
- 	
- 	<select id="findByBCode" resultType="rBookVO">
-		 SELECT 
-		    RB_SEQ,
-		    RB_BCODE,
-		    B_NAME AS RB_BNAME,
-		    RB_DATE,
-		    RB_STIME,
-		    RB_RTIME,
-		    RB_SUBJECT,
-		    RB_TEXT,
-		    RB_STAR
-		FROM tbl_read_book R,tbl_books B
-		WHERE R.rb_bcode = #{b_code,jdbcType=VARCHAR}
-			AND R.rb_bcode = b.b_code 
  	</select>
  	
  	<insert id="insert" parameterType="rBookVO">
@@ -72,6 +73,5 @@
 				#{rb_star,jdbcType=VARCHAR}
 			)
  	</insert>
- 	
  
  </mapper> 

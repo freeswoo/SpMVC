@@ -1,5 +1,6 @@
 package com.biz.rbooks.config;
 
+
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -22,7 +23,6 @@ public class MybatisConfig {
 		ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
 		ds.setUsername("bookuser");
 		ds.setPassword("bookuser");
-		
 		return ds;
 	}
 	
@@ -31,16 +31,18 @@ public class MybatisConfig {
 		SqlSessionFactoryBean sb = new SqlSessionFactoryBean();
 		sb.setDataSource( oracleDs() );
 		sb.setTypeAliasesPackage("com.biz.rbooks.domain");
-		
 		return sb;
 	}
 	
 	@Bean
 	public DataSourceTransactionManager tm() {
-		DataSourceTransactionManager tm
-		= new DataSourceTransactionManager(oracleDs());
-		
+		DataSourceTransactionManager tm 
+		= new DataSourceTransactionManager( oracleDs() );
 		return tm;
 	}
-
+	
 }
+
+
+
+

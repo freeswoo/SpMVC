@@ -8,6 +8,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <%@ include file="/WEB-INF/views/include/include-head.jspf" %>
+</head>
+<body>
+<header>
+	<h2>MY READ BOOK</h2>
+</header>
+<%@ include file="/WEB-INF/views/include/include-nav.jspf" %>
 <%@ include file="/WEB-INF/views/rbooks/list-body.jsp" %>
 </body>
 </html>
+
+
+
+

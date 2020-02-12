@@ -15,15 +15,16 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(value="/rbook")
 @RestController
 public class ReadBookController {
-	
+		
 	private final ReadBookService rbService;
 
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public List<ReadBookVO> list() {
-		
+			
 		List<ReadBookVO> rBookList = rbService.selectAll();
-		
 		return rBookList;
+		
 	}
 	
 }
+

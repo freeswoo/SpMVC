@@ -30,10 +30,6 @@ $(function(){
 </script>
 </head>
 <body>
-<header>
-	<h2>MY READ BOOK</h2>
-</header>
-<%@ include file="/WEB-INF/views/include/include-nav.jspf" %>
 <section id="main-list">
 	<table id="main-table">
 		<thead>

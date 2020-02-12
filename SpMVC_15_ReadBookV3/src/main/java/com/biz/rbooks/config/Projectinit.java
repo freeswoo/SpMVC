@@ -1,11 +1,10 @@
 package com.biz.rbooks.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
 /*
  * tomcat이 작동하면서 제일먼저 호출할 클래스
  */
-public class Projectinit extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class ProjectInit extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -15,22 +14,22 @@ public class Projectinit extends AbstractAnnotationConfigDispatcherServletInitia
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		
+
 		// Class[] servlet = new Class[] {WebConfig.class};
 		// return servlet;
-		return new Class[] {WebServletConfig.class, MybatisConfig.class};
+		return new Class[] {
+				WebServletConfig.class,
+				MybatisConfig.class
+		};
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		
-		// String[] mapping = new String[] {"/","*.do"}; 
+
+		// String[] mapping = new String[]{"/","*.do"}; 
 		// return mapping;
-		return new String[] {"/","*.do"};
+		return new String[] {"/","*.do"} ;
+	
 	}
 
-	
-	
-	
-	
 }

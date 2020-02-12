@@ -12,15 +12,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class BookService {
-
+	
 	private final BookDao bDao;
 	
 	public List<BookVO> selectAll() {
-		
 		return bDao.selectAll();
 	}
 
-	
-	
-	
 }
+
+
+
+
+

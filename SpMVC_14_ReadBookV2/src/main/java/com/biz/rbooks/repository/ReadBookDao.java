@@ -23,9 +23,11 @@ public interface ReadBookDao {
 	@UpdateProvider(type=ReadBookSQL.class,method="update_sql")
 	public int update(ReadBookVO rBookVO);
 
-	@Delete("DELETE FROM tbl_read_book WHERE rb_seq = #{rb_seq}")
-	public int delete(Long rb_seq);
-	
-	
+	@Delete("DELETE FROM tbl_read_book "
+					+ "WHERE rb_seq = #{rb_seq}")
+	public int delete(long rb_seq);
 	
 }
+
+
+
